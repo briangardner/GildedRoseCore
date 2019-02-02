@@ -6,8 +6,6 @@ namespace ConsoleApplication
 {
     public class Program
     {
-        private IList<Item> items;
-
         public static void Main(string[] args)
         {
             Console.WriteLine("OMGHAI!");
@@ -40,7 +38,7 @@ namespace ConsoleApplication
                 {
                     if (items[i].Quality > 0)
                     {
-                        if (items[i].Name != "Sulfuras, Hand of Ragnaros")
+                        if (items[i].Name != ItemNames.Sulfuras)
                         {
                             items[i].Quality = items[i].Quality - 1;
                         }
