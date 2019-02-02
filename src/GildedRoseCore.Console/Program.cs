@@ -6,31 +6,34 @@ namespace ConsoleApplication
 {
     public class Program
     {
+        private IList<Item> _items;
         public static void Main(string[] args)
         {
             Console.WriteLine("OMGHAI!");
 
-            var items = new List<Item>
+            var app = new Program()
             {
-                new Item {Name = ItemNames.DexterityVest, SellIn = 10, Quality = 20},
-                new Item {Name = ItemNames.AgedBrie, SellIn = 2, Quality = 0},
-                new Item {Name = ItemNames.ElixirOfMongoose, SellIn = 5, Quality = 7},
-                new Item {Name = ItemNames.Sulfuras, SellIn = 0, Quality = 80},
-                new Item
+                _items = new List<Item>
                 {
-                    Name = ItemNames.BackstagePass,
-                    SellIn = 15,
-                    Quality = 20
-                },
-                new Item {Name = ItemNames.ManaCake, SellIn = 3, Quality = 6}
+                    new Item {Name = ItemNames.DexterityVest, SellIn = 10, Quality = 20},
+                    new Item {Name = ItemNames.AgedBrie, SellIn = 2, Quality = 0},
+                    new Item {Name = ItemNames.ElixirOfMongoose, SellIn = 5, Quality = 7},
+                    new Item {Name = ItemNames.Sulfuras, SellIn = 0, Quality = 80},
+                    new Item
+                    {
+                        Name = ItemNames.BackstagePass,
+                        SellIn = 15,
+                        Quality = 20
+                    },
+                    new Item {Name = ItemNames.ManaCake, SellIn = 3, Quality = 6}
+                    }
             };
-
-            UpdateQuality(items);
+            app.UpdateQuality(app._items);
 
             Console.ReadKey();
         }
 
-        public static void UpdateQuality(IList<Item> items)
+        public void UpdateQuality(IList<Item> items)
         {
             for (var i = 0; i < items.Count; i++)
             {
