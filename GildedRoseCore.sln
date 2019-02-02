@@ -8,6 +8,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GildedRoseCore.Console", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GildedRoseCore.Console.Tests", "src\GildedRoseCore.Console.Tests\GildedRoseCore.Console.Tests.csproj", "{FDE585D3-8FBF-429C-9D05-93080943CA63}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{62F0DECD-B418-41DC-A9AE-ACC6DD933773}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,5 +54,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B04F5158-3084-4150-8346-36FA049B9F48} = {AF96D807-55A5-405F-A636-03BEAAD09547}
 		{FDE585D3-8FBF-429C-9D05-93080943CA63} = {AF96D807-55A5-405F-A636-03BEAAD09547}
+		{62F0DECD-B418-41DC-A9AE-ACC6DD933773} = {AF96D807-55A5-405F-A636-03BEAAD09547}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {993595AC-19FF-488E-B086-EA6C10E8DD3E}
 	EndGlobalSection
 EndGlobal
