@@ -7,11 +7,11 @@ namespace GildedRoseCore.Console.Decorators
 {
     public abstract class StockItem
     {
-        private readonly Item _item;
+        protected readonly Item Item;
 
         protected StockItem(Item item)
         {
-            _item = item;
+            Item = item;
         }
 
         public virtual void UpdateItem()
@@ -19,6 +19,9 @@ namespace GildedRoseCore.Console.Decorators
             Age();
             Deteriorate();
         }
+
+        public int SellIn => Item.SellIn;
+        public int Quality => Item.Quality;
         protected abstract void Age();
         protected abstract void Deteriorate();
     }
