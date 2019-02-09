@@ -5,22 +5,18 @@ using ConsoleApplication;
 
 namespace GildedRoseCore.Console.Decorators
 {
-    class AgedBrie : StockItem
+    internal class AgedBrie : StockItem
     {
         public AgedBrie(Item item) : base(item)
         {
         }
 
-        protected override void Age()
-        {
-            Item.SellIn--;
-        }
-
         protected override void Deteriorate()
         {
+            base.Deteriorate();
             if (Item.Quality < 50)
             {
-                Item.Quality++;
+                Item.Quality = Quality + 1;
             }
         }
     }
