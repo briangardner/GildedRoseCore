@@ -11,10 +11,17 @@ namespace GildedRoseCore.Console.Decorators
         {
         }
 
+        public AgingItem(StockItem stockItem): base(stockItem) { }
+        
+
         protected override void Age()
         {
-            base.Age();
             Item.SellIn = SellIn - 1;
+        }
+
+        protected override void Deteriorate()
+        {
+            return;
         }
     }
 }

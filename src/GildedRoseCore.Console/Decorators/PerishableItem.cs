@@ -11,9 +11,17 @@ namespace GildedRoseCore.Console.Decorators
         {
         }
 
+        public PerishableItem(StockItem stockItem):base(stockItem)
+        {
+        }
+
+        protected override void Age()
+        {
+            return;
+        }
+
         protected override void Deteriorate()
         {
-            base.Deteriorate();
             //Item quality cannot be negative.  So if Quality is 0, don't bother checking anything else.
             if (Item.Quality == 0)
             {

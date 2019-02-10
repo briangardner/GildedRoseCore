@@ -31,14 +31,9 @@ namespace GildedRoseCore.Console.Decorators
         public int SellIn => Item.SellIn;
         public int Quality => Item.Quality;
 
-        protected virtual void Age()
-        {
-            return;
-        }
+        protected abstract void Age();
 
-        protected virtual void Deteriorate()
-        {
-            return;
-        }
+        protected abstract void Deteriorate();
+
     }
 }

@@ -10,5 +10,15 @@ namespace GildedRoseCore.Console.Decorators
         public ImmutableItem(Item item) : base(item)
         {
         }
+
+        protected override void Age()
+        {
+            return;
+        }
+
+        protected override void Deteriorate()
+        {
+            return;
+        }
     }
 }

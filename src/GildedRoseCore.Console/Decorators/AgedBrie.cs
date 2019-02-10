@@ -11,9 +11,17 @@ namespace GildedRoseCore.Console.Decorators
         {
         }
 
+        public AgedBrie(StockItem stockItem) : base(stockItem)
+        {
+        }
+
+        protected override void Age()
+        {
+            return;
+        }
+
         protected override void Deteriorate()
         {
-            base.Deteriorate();
             if (Item.Quality < 50)
             {
                 Item.Quality = Quality + 1;
