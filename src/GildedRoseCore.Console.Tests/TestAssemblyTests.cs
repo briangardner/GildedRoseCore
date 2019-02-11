@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using ConsoleApplication;
 using GildedRoseCore.Console;
+using GildedRoseCore.Console.Factories;
 using Xunit;
 
 namespace Tests
 {
     public class TestAssemblyTests
     {
-        private Program _program;
+        private readonly GuildedRose _guildedRose;
         public TestAssemblyTests()
         {
-            _program = new Program();
+            _guildedRose = new GuildedRose(new StockItemFactory());
         }
         [Fact]
         public void TestTheTruth() 
@@ -32,7 +33,8 @@ namespace Tests
             {
                 agedBrie  
             };
-            _program.UpdateQuality(items);
+            _guildedRose.AddToStock(items);
+            _guildedRose.UpdateInventory();
             Assert.Equal(41, agedBrie.Quality);
         }
 
@@ -49,7 +51,8 @@ namespace Tests
             {
                 agedBrie
             };
-            _program.UpdateQuality(items);
+            _guildedRose.AddToStock(items);
+            _guildedRose.UpdateInventory();
             Assert.Equal(42, agedBrie.Quality);
         }
 
@@ -66,7 +69,8 @@ namespace Tests
             {
                 agedBrie
             };
-            _program.UpdateQuality(items);
+            _guildedRose.AddToStock(items);
+            _guildedRose.UpdateInventory();
             Assert.Equal(50, agedBrie.Quality);
         }
 
@@ -83,7 +87,8 @@ namespace Tests
             {
                 agedBrie
             };
-            _program.UpdateQuality(items);
+            _guildedRose.AddToStock(items);
+            _guildedRose.UpdateInventory();
             Assert.Equal(-1, agedBrie.SellIn);
         }
 
@@ -100,7 +105,8 @@ namespace Tests
             {
                 agedBrie
             };
-            _program.UpdateQuality(items);
+            _guildedRose.AddToStock(items);
+            _guildedRose.UpdateInventory();
             Assert.Equal(9, agedBrie.SellIn);
         }
 
@@ -117,7 +123,8 @@ namespace Tests
             {
                 sulfuras
             };
-            _program.UpdateQuality(items);
+            _guildedRose.AddToStock(items);
+            _guildedRose.UpdateInventory();
             Assert.Equal(80, sulfuras.Quality);
         }
 
@@ -134,7 +141,8 @@ namespace Tests
             {
                 sulfuras
             };
-            _program.UpdateQuality(items);
+            _guildedRose.AddToStock(items);
+            _guildedRose.UpdateInventory();
             Assert.Equal(0, sulfuras.SellIn);
         }
 
@@ -148,7 +156,8 @@ namespace Tests
                 SellIn = 11
             };
             var items = new List<Item> {pass};
-            _program.UpdateQuality(items);
+            _guildedRose.AddToStock(items);
+            _guildedRose.UpdateInventory();
             Assert.Equal(11, pass.Quality);
         }
 
@@ -162,7 +171,8 @@ namespace Tests
                 SellIn = 10
             };
             var items = new List<Item> { pass };
-            _program.UpdateQuality(items);
+            _guildedRose.AddToStock(items);
+            _guildedRose.UpdateInventory();
             Assert.Equal(12, pass.Quality);
         }
 
@@ -176,7 +186,8 @@ namespace Tests
                 SellIn = 5
             };
             var items = new List<Item> { pass };
-            _program.UpdateQuality(items);
+            _guildedRose.AddToStock(items);
+            _guildedRose.UpdateInventory();
             Assert.Equal(13, pass.Quality);
         }
 
@@ -190,7 +201,8 @@ namespace Tests
                 SellIn = -1
             };
             var items = new List<Item> { pass };
-            _program.UpdateQuality(items);
+            _guildedRose.AddToStock(items);
+            _guildedRose.UpdateInventory();
             Assert.Equal(0, pass.Quality);
         }
 
@@ -204,7 +216,8 @@ namespace Tests
                 SellIn = 10
             };
             var items = new List<Item> {vest};
-            _program.UpdateQuality(items);
+            _guildedRose.AddToStock(items);
+            _guildedRose.UpdateInventory();
             Assert.Equal(24, vest.Quality);
         }
 
@@ -218,7 +231,8 @@ namespace Tests
                 SellIn = 0
             };
             var items = new List<Item> { vest };
-            _program.UpdateQuality(items);
+            _guildedRose.AddToStock(items);
+            _guildedRose.UpdateInventory();
             Assert.Equal(23, vest.Quality);
         }
 
@@ -232,7 +246,8 @@ namespace Tests
                 SellIn = 0
             };
             var items = new List<Item> { vest };
-            _program.UpdateQuality(items);
+            _guildedRose.AddToStock(items);
+            _guildedRose.UpdateInventory();
             Assert.Equal(0, vest.Quality);
         }
     }

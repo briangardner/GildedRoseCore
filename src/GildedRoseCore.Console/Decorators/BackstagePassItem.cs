@@ -26,18 +26,16 @@ namespace GildedRoseCore.Console.Decorators
                 Item.Quality = 0;
                 return;
             }
-            if (SellIn > 10)
+
+            Item.Quality += 1;
+            if (SellIn < 11)
             {
                 Item.Quality += 1;
-                return;
             }
-            if (SellIn > 5)
+
+            if (SellIn < 6)
             {
-                Item.Quality += 2;
-            }
-            else
-            {
-                Item.Quality += 3;
+                Item.Quality += 1;
             }
         }
     }

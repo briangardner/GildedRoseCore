@@ -23,13 +23,14 @@ namespace GildedRoseCore.Console.Decorators
         public virtual void UpdateItem()
         {
             _stockItem?.UpdateItem();
-            Age();
             Deteriorate();
+            Age();
         }
 
         public bool PastSellInDate => SellIn < 0;
         public int SellIn => Item.SellIn;
         public int Quality => Item.Quality;
+        public string Name => Item.Name;
 
         protected abstract void Age();
 

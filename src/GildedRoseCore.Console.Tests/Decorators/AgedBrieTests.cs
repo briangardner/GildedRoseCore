@@ -37,5 +37,31 @@ namespace GildedRoseCore.Console.Tests.Decorators
             cheese.UpdateItem();
             Assert.Equal(50, cheese.Quality);
         }
+
+        [Fact]
+        public void UpdateItem_Should_Not_Let_Quality_Go_Over_50_When_Past_Sell_Date()
+        {
+            var cheese = new AgedBrieItem(new Item()
+            {
+                Name = ItemNames.AgedBrie,
+                Quality = 50,
+                SellIn = -2
+            });
+            cheese.UpdateItem();
+            Assert.Equal(50, cheese.Quality);
+        }
+
+        [Fact]
+        public void Quality_Should_Increase_By_2_When_Past_SellBy()
+        {
+            var cheese = new AgedBrieItem(new Item()
+            {
+                Name = ItemNames.AgedBrie,
+                Quality = 40,
+                SellIn = -1
+            });
+            cheese.UpdateItem();
+            Assert.Equal(42, cheese.Quality);
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using GildedRoseCore.Console;
+using GildedRoseCore.Console.Factories;
 
 namespace ConsoleApplication
 {
@@ -10,7 +11,7 @@ namespace ConsoleApplication
         public static void Main(string[] args)
         {
             Console.WriteLine("OMGHAI!");
-
+            var guildedRose = new GuildedRose(new StockItemFactory());
             var app = new Program()
             {
                 _items = new List<Item>
@@ -28,8 +29,8 @@ namespace ConsoleApplication
                     new Item {Name = ItemNames.ManaCake, SellIn = 3, Quality = 6}
                     }
             };
-            app.UpdateQuality(app._items);
-
+            guildedRose.AddToStock(app._items);
+            guildedRose.UpdateInventory();
             Console.ReadKey();
         }
 

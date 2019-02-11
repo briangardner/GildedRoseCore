@@ -10,7 +10,7 @@ namespace GildedRoseCore.Console.Tests.Factories
 {
     public class StockItemFactoryTests
     {
-        private IStockItemFactory _factory;
+        private readonly IStockItemFactory _factory;
 
         public StockItemFactoryTests()
         {

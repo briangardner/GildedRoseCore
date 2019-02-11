@@ -22,9 +22,14 @@ namespace GildedRoseCore.Console.Decorators
 
         protected override void Deteriorate()
         {
+            if (Item.SellIn < 0 && Item.Quality < 50) 
+            {
+                Item.Quality += 1;
+            }
+
             if (Item.Quality < 50)
             {
-                Item.Quality = Quality + 1;
+                Item.Quality += 1;
             }
         }
     }
