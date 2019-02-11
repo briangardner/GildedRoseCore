@@ -15,7 +15,7 @@ namespace GildedRoseCore.Console.Tests.Decorators
         [Fact]
         public void UpdateItem_Should_Increase_Quality()
         {
-            var cheese = new AgedBrie(new Item()
+            var cheese = new AgedBrieItem(new Item()
             {
                 Name = ItemNames.AgedBrie,
                 Quality = 20,
@@ -28,7 +28,7 @@ namespace GildedRoseCore.Console.Tests.Decorators
         [Fact]
         public void UpdateItem_Should_Not_Let_Quality_Go_Over_50()
         {
-            var cheese = new AgedBrie(new Item()
+            var cheese = new AgedBrieItem(new Item()
             {
                 Name = ItemNames.AgedBrie,
                 Quality = 50,

@@ -8,6 +8,10 @@ namespace GildedRoseCore.Console.Factories
     {
         public StockItem GetStockItem(Item item)
         {
+            if (string.IsNullOrWhiteSpace(item.Name))
+            {
+                throw new ArgumentNullException(nameof(item.Name), "Item Name cannot be null");
+            }
             if (item.Name.Contains(ItemNames.Sulfuras))
             {
                 return new ImmutableItem(item);
@@ -15,8 +19,15 @@ namespace GildedRoseCore.Console.Factories
 
             if (item.Name.Contains(ItemNames.AgedBrie))
             {
-                return new AgedBrie(new AgingItem(item));
+                return new AgedBrieItem(new AgingItem(item));
             }
+
+            if (item.Name.Contains("Backstage"))
+            {
+                return new BackstagePassItem(new AgingItem(item));
+            }
+
+
             return new PerishableItem(new AgingItem(item));
         }
     }

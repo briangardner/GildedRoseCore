@@ -5,13 +5,13 @@ using ConsoleApplication;
 
 namespace GildedRoseCore.Console.Decorators
 {
-    internal class AgedBrie : StockItem
+    internal class AgedBrieItem : StockItem
     {
-        public AgedBrie(Item item) : base(item)
+        public AgedBrieItem(Item item) : base(item)
         {
         }
 
-        public AgedBrie(StockItem stockItem) : base(stockItem)
+        public AgedBrieItem(StockItem stockItem) : base(stockItem)
         {
         }
 
