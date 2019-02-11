@@ -24,7 +24,7 @@ namespace GildedRoseCore.Console.Factories
 
             if (item.Name.Contains("Backstage"))
             {
-                return new BackstagePassItem(new AgingItem(item));
+                return new AgingItem(new BackstagePassItem(item));
             }
 
 

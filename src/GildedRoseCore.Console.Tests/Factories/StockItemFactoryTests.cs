@@ -60,7 +60,7 @@ namespace GildedRoseCore.Console.Tests.Factories
         }
 
         [Fact]
-        public void Backstage_Tickets_Should_Be_BackstagePass_Type()
+        public void Backstage_Tickets_Should_Be_Aging_Type()
         {
             var stockItem = _factory.GetStockItem(new Item()
             {
@@ -68,7 +68,7 @@ namespace GildedRoseCore.Console.Tests.Factories
                 Quality = 20,
                 SellIn = 10
             });
-            Assert.IsType<BackstagePassItem>(stockItem);
+            Assert.IsType<AgingItem>(stockItem);
         }
     }
 }
