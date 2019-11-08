@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Item = ConsoleApplication.Item;
 
 namespace ConsoleApplication
 {
@@ -19,6 +20,7 @@ namespace ConsoleApplication
         {
             Console.WriteLine("OMGHAI!");
 
+            
             var app = new Program()
             {
                 Items = new List<Item>
@@ -38,9 +40,19 @@ namespace ConsoleApplication
 
             };
 
+            PrintInventory(app);
             app.UpdateQuality();
-
+            Console.WriteLine($"********** After Update *********");
+            PrintInventory(app);
             Console.ReadKey();
+        }
+
+        private static void PrintInventory(Program app)
+        {
+            foreach (var i in app.Items)
+            {
+                Console.WriteLine($"{i.Name,40} \t {i.Quality,10} \t {i.SellIn,10}");
+            }
         }
 
         public void UpdateQuality()
