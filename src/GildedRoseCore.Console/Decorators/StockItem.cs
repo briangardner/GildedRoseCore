@@ -34,12 +34,10 @@ namespace GildedRoseCore.Console.Decorators
 
         protected virtual void Age()
         {
-            return;
         }
             
         protected virtual void Deteriorate()
         {
-            return;
         }
 
     }

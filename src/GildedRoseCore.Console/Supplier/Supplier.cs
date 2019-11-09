@@ -26,10 +26,9 @@ namespace GildedRoseCore.Console.Supplier
                 _store.RemoveFromStock(item);
             }
 
-            if (item.SellIn < 0)
+            if (item.PastSellInDate)
             {
-                System.Console.WriteLine($"{item.Name} has gone past its expiration date.  Time to remove it from stock.");
-                _store.RemoveFromStock(item);
+                System.Console.WriteLine($"{item.Name} has gone past its expiration date.  It still has some value, but you should sell it soon.");
             }
         }
     }
