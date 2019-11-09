@@ -9,4 +9,10 @@
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Decorators\" />
+    <Folder Include="Factories\" />
+    <Folder Include="Supplier\" />
+  </ItemGroup>
+
 </Project>
