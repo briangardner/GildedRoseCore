@@ -15,11 +15,6 @@ namespace GildedRoseCore.Console.Decorators
         {
         }
 
-        protected override void Age()
-        {
-            return;
-        }
-
         protected override void Deteriorate()
         {
             //Item quality cannot be negative.  So if Quality is 0, don't bother checking anything else.

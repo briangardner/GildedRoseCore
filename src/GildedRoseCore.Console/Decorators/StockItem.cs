@@ -5,7 +5,7 @@ using ConsoleApplication;
 
 namespace GildedRoseCore.Console.Decorators
 {
-    public abstract class StockItem
+    public abstract class StockItem : Item
     {
         protected readonly Item Item;
         private readonly StockItem _stockItem;
@@ -28,13 +28,19 @@ namespace GildedRoseCore.Console.Decorators
         }
 
         public bool PastSellInDate => SellIn < 0;
-        public int SellIn => Item.SellIn;
-        public int Quality => Item.Quality;
-        public string Name => Item.Name;
+        public new int SellIn => Item.SellIn;
+        public new int Quality => Item.Quality;
+        public new string Name => Item.Name;
 
-        protected abstract void Age();
-
-        protected abstract void Deteriorate();
+        protected virtual void Age()
+        {
+            return;
+        }
+            
+        protected virtual void Deteriorate()
+        {
+            return;
+        }
 
     }
 }

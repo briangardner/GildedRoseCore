@@ -11,6 +11,7 @@ namespace GildedRoseCore.Console
     {
         private readonly IStockItemFactory _stockItemFactory;
         private IList<StockItem> _stock;
+        // Dependency Inversion Principle going on here
         public GuildedRose(IStockItemFactory stockItemFactory)
         {
             _stockItemFactory = stockItemFactory;
@@ -62,6 +63,7 @@ namespace GildedRoseCore.Console
 
         public void UpdateInventory()
         {
+            //Liskov Substitution Principle going on here
             foreach (var item in _stock)
             {
                 item.UpdateItem();

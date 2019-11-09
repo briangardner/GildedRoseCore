@@ -19,9 +19,5 @@ namespace GildedRoseCore.Console.Decorators
             Item.SellIn = SellIn - 1;
         }
 
-        protected override void Deteriorate()
-        {
-            return;
-        }
     }
 }

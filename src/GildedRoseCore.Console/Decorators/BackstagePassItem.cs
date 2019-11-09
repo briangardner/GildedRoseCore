@@ -15,9 +15,6 @@ namespace GildedRoseCore.Console.Decorators
         {
         }
 
-        protected override void Age()
-        {
-        }
 
         protected override void Deteriorate()
         {

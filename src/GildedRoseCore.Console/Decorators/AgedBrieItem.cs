@@ -15,11 +15,6 @@ namespace GildedRoseCore.Console.Decorators
         {
         }
 
-        protected override void Age()
-        {
-            return;
-        }
-
         protected override void Deteriorate()
         {
             if (Item.SellIn < 0 && Item.Quality < 50) 
