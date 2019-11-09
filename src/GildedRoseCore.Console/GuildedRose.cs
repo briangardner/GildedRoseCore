@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using ConsoleApplication;
 using GildedRoseCore.Console.Decorators;
@@ -7,15 +8,19 @@ using GildedRoseCore.Console.Factories;
 
 namespace GildedRoseCore.Console
 {
-    class GuildedRose
+    class GuildedRose : IStore, IObservable<StockItem>
     {
         private readonly IStockItemFactory _stockItemFactory;
-        private IList<StockItem> _stock;
+        private ICollection<StockItem> _stock;
+
+        private ICollection<IObserver<StockItem>> _observers;
+
         // Dependency Inversion Principle going on here
         public GuildedRose(IStockItemFactory stockItemFactory)
         {
             _stockItemFactory = stockItemFactory;
             _stock = new List<StockItem>();
+            _observers = new List<IObserver<StockItem>>();
         }
 
         public void AddToStock(IList<Item> items)
@@ -43,7 +48,7 @@ namespace GildedRoseCore.Console
             _stock.Remove(item);
         }
 
-        public IList<StockItem> GetStock()
+        public ICollection<StockItem> GetStock()
         {
             return _stock;
         }
@@ -52,7 +57,7 @@ namespace GildedRoseCore.Console
         {
             foreach (var item in _stock)
             {
-                System.Console.WriteLine($"{item.Name,20} \t Quality:{item.Quality,4} \t SellIn:{item.SellIn,4}");
+                System.Console.WriteLine($"{item.Name,40} \t Quality:{item.Quality,4} \t SellIn:{item.SellIn,4}");
             }
         }
 
@@ -64,10 +69,19 @@ namespace GildedRoseCore.Console
         public void UpdateInventory()
         {
             //Liskov Substitution Principle going on here
-            foreach (var item in _stock)
+            foreach (var item in _stock.ToList())
             {
                 item.UpdateItem();
+                foreach (var observer in _observers)
+                {
+                    observer.OnNext(item);
+                }
             }
+        }
+
+        public void Subscribe(IObserver<StockItem> observer)
+        {
+            _observers.Add(observer);
         }
     }
 }

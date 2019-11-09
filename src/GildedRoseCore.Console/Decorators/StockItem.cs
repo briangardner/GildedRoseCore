@@ -28,9 +28,9 @@ namespace GildedRoseCore.Console.Decorators
         }
 
         public bool PastSellInDate => SellIn < 0;
-        public new int SellIn => Item.SellIn;
-        public new int Quality => Item.Quality;
-        public new string Name => Item.Name;
+        public int SellIn => Item.SellIn;
+        public int Quality => Item.Quality;
+        public string Name => Item.Name;
 
         protected virtual void Age()
         {

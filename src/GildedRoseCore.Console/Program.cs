@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using GildedRoseCore.Console;
 using GildedRoseCore.Console.Factories;
+using GildedRoseCore.Console.Supplier;
 
 namespace ConsoleApplication
 {
@@ -11,7 +12,11 @@ namespace ConsoleApplication
         public static void Main(string[] args)
         {
             Console.WriteLine("OMGHAI!");
-            var guildedRose = new GuildedRose(new StockItemFactory());
+            var stockItemFactory = new StockItemFactory();
+            var guildedRose = new GuildedRose(stockItemFactory);
+            var supplier = new Supplier(stockItemFactory, guildedRose);
+            guildedRose.Subscribe(supplier);
+
             var app = new Program()
             {
                 _items = new List<Item>
@@ -30,8 +35,20 @@ namespace ConsoleApplication
                     }
             };
             guildedRose.AddToStock(app._items);
-            guildedRose.UpdateInventory();
-            Console.ReadKey();
+            char inputChar;
+
+            do
+            {
+
+                
+                guildedRose.PrintStock();
+                Console.WriteLine("*******************************\n\n");
+                guildedRose.UpdateInventory();
+                Console.WriteLine("Go forward another day? (N/n to stop Program)");
+                inputChar = Console.ReadKey().KeyChar;
+
+            } while (inputChar != 'n' || inputChar != 'N');
+
         }
     }
 }
