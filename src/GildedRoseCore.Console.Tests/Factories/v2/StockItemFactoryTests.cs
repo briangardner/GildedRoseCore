@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using ConsoleApplication;
-using GildedRoseCore.Console.Decorators;
-using GildedRoseCore.Console.Factories;
+using GildedRoseCore.Console.Decorators.v2;
+using GildedRoseCore.Console.Factories.v2;
 using Xunit;
 
 namespace GildedRoseCore.Console.Tests.Factories
@@ -60,7 +58,7 @@ namespace GildedRoseCore.Console.Tests.Factories
         }
 
         [Fact]
-        public void Backstage_Tickets_Should_Be_Aging_Type()
+        public void Backstage_Tickets_Should_Be_BackstagePassItem_Type()
         {
             var stockItem = _factory.GetStockItem(new Item()
             {
@@ -68,7 +66,7 @@ namespace GildedRoseCore.Console.Tests.Factories
                 Quality = 20,
                 SellIn = 10
             });
-            Assert.IsType<AgingItem>(stockItem);
+            Assert.IsType<BackstagePassItem>(stockItem);
         }
     }
 }

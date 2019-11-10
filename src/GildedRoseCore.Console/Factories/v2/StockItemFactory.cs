@@ -20,7 +20,17 @@ namespace GildedRoseCore.Console.Factories.v2
             {
                 return new ImmutableItem(item);
             }
-            return new DefaultAgingItem(item);
+
+            if (item.Name.Contains(ItemNames.AgedBrie))
+            {
+                return new AgedBrieItem(new DefaultAgingItem(item));
+            }
+
+            if (item.Name.Contains("Backstage"))
+            {
+                return new BackstagePassItem(new DefaultAgingItem(item));
+            }
+            return new PerishableItem( new DefaultAgingItem(item));
         }
     }
 }

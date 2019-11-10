@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using ConsoleApplication;
 using GildedRoseCore.Console;
-using GildedRoseCore.Console.Factories;
+using GildedRoseCore.Console.Factories.v2;
 using Xunit;
 
 namespace Tests
@@ -153,7 +153,7 @@ namespace Tests
             {
                 Name = ItemNames.BackstagePass,
                 Quality = 10,
-                SellIn = 11
+                SellIn = 12 // Since an Item ages, then changes quality, by setting to 12, we will age to 11, then modify quality.
             };
             var items = new List<Item> {pass};
             _guildedRose.AddToStock(items);

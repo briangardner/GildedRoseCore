@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Text;
 using ConsoleApplication;
 using GildedRoseCore.Console.Decorators;
-using GildedRoseCore.Console.Factories;
+using GildedRoseCore.Console.Decorators.v2;
+using GildedRoseCore.Console.Factories.v2;
 
 namespace GildedRoseCore.Console
 {
     class GuildedRose
     {
         private readonly IStockItemFactory _stockItemFactory;
-        private IList<StockItem> _stock;
+        private IList<AbstractStockItem> _stock;
         // Dependency Inversion Principle going on here
         public GuildedRose(IStockItemFactory stockItemFactory)
         {
             _stockItemFactory = stockItemFactory;
-            _stock = new List<StockItem>();
+            _stock = new List<AbstractStockItem>();
         }
 
         public void AddToStock(IList<Item> items)
@@ -38,12 +39,12 @@ namespace GildedRoseCore.Console
             }
         }
 
-        public void RemoveFromStock(StockItem item)
+        public void RemoveFromStock(AbstractStockItem item)
         {
             _stock.Remove(item);
         }
 
-        public IList<StockItem> GetStock()
+        public IList<AbstractStockItem> GetStock()
         {
             return _stock;
         }
@@ -58,7 +59,7 @@ namespace GildedRoseCore.Console
 
         public void ClearStock()
         {
-            _stock = new List<StockItem>();
+            _stock = new List<AbstractStockItem>();
         }
 
         public void UpdateInventory()

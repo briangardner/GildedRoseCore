@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using ConsoleApplication;
 using GildedRoseCore.Console.Decorators;
+using GildedRoseCore.Console.Decorators.v2;
 using Xunit;
 using AgedBrieItem = GildedRoseCore.Console.Decorators.v2.AgedBrieItem;
 
@@ -30,6 +31,13 @@ namespace GildedRoseCore.Console.Tests.Decorators.v2
             _testItem.Quality = starting;
             _testItem.UpdateItem();
             Assert.Equal(expected, _testItem.Quality);
+        }
+
+        public void AgedBrie_Should_Increase_Quality_By_2_When_SellIn_Negative()
+        {
+            _testItem.SellIn = -1;
+            _testItem.UpdateItem();
+            Assert.Equal(42, _testItem.Quality);
         }
     }
 }

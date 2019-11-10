@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ConsoleApplication;
-using GildedRoseCore.Console.Decorators;
+﻿using ConsoleApplication;
+using GildedRoseCore.Console.Decorators.v2;
 using Xunit;
 
-namespace GildedRoseCore.Console.Tests.Decorators
+namespace GildedRoseCore.Console.Tests.Decorators.v2
 {
-    [Collection("Backstage Pass Tests")]
     public class BackstagePassItemTests
     {
         [Fact]
@@ -17,7 +13,7 @@ namespace GildedRoseCore.Console.Tests.Decorators
             {
                 Name = ItemNames.BackstagePass,
                 Quality = 20,
-                SellIn = 11
+                SellIn = 11 
             });
             item.UpdateItem();
             Assert.Equal(21, item.Quality);

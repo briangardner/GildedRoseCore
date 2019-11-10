@@ -10,5 +10,10 @@ namespace GildedRoseCore.Console.Decorators.v2
         public ImmutableItem(Item item) : base(item)
         {
         }
+
+        public ImmutableItem(AbstractStockItem item) : base(item)
+        {
+            
+        }
     }
 }

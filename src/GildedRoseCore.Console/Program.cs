@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using GildedRoseCore.Console;
-using GildedRoseCore.Console.Factories;
+using GildedRoseCore.Console.Factories.v2;
 
 namespace ConsoleApplication
 {

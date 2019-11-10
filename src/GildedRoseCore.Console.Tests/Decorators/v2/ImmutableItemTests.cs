@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using ConsoleApplication;
 using GildedRoseCore.Console.Decorators;
+using GildedRoseCore.Console.Decorators.v2;
 using Xunit;
 using ImmutableItem = GildedRoseCore.Console.Decorators.v2.ImmutableItem;
 

@@ -11,6 +11,11 @@ namespace GildedRoseCore.Console.Decorators.v2
         {
         }
 
+        public DefaultAgingItem(AbstractStockItem item) : base(item)
+        {
+            
+        }
+
         protected override void Age()
         {
             base.Age();
